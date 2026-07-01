@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
+import Brochure from '@/components/Brochure';
 
 const downloadPdf = () => window.print();
 
@@ -32,22 +34,41 @@ const Logo = ({ size = 48 }: { size?: number }) => (
 const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'ScanLine', 'Droplets', 'Crosshair'];
 
 const Index = () => {
+  const [mode, setMode] = useState<'site' | 'print'>('site');
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Sticky bar */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur no-print">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
             <Logo size={44} />
             <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
-          <Button onClick={downloadPdf} className="gap-2 font-500 no-print">
-            <Icon name="Download" size={16} />
-            <span className="hidden sm:inline">Скачать PDF</span>
-            <span className="sm:hidden">PDF</span>
-          </Button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMode(mode === 'site' ? 'print' : 'site')}
+              className="hidden sm:flex items-center gap-2 border border-border px-3 py-2 text-sm text-muted-foreground hover:border-primary hover:text-foreground transition-colors"
+            >
+              <Icon name={mode === 'site' ? 'BookOpen' : 'LayoutDashboard'} size={15} />
+              {mode === 'site' ? 'Режим брошюры' : 'Режим сайта'}
+            </button>
+            <Button onClick={downloadPdf} className="gap-2 font-500">
+              <Icon name="Download" size={16} />
+              <span className="hidden sm:inline">Скачать PDF</span>
+              <span className="sm:hidden">PDF</span>
+            </Button>
+          </div>
         </div>
       </header>
+
+      {/* БРОШЮРА — всегда в DOM, на экране видна только в режиме брошюры */}
+      <div className={mode === 'print' ? 'print-brochure' : 'print-brochure hidden-on-screen'}>
+        <Brochure />
+      </div>
+
+      {/* САЙТ */}
+      {mode === 'site' && <div className="screen-only">
 
       {/* HERO */}
       <section className="relative overflow-hidden diagonal-clip">
@@ -210,6 +231,7 @@ const Index = () => {
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         © 2026 ИТЦ Сибирь · Защита для грузовой техники
       </footer>
+      </div>}
     </div>
   );
 };
