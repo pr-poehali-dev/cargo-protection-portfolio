@@ -81,7 +81,7 @@ const PageCover = () => (
 
     <div style={{ position: 'relative', zIndex: 2, padding: '18mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
       <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, letterSpacing: '0.25em', color: C.amber }}>
-        ИТЦ СИБИРЬ
+        ИТЦ СИБИРИ
       </span>
 
       <div style={{ marginTop: 'auto', paddingBottom: '35mm' }}>
@@ -247,7 +247,7 @@ const PageContacts = () => (
 
     <div style={{ position: 'relative', zIndex: 2, padding: '20mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
       <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, letterSpacing: '0.25em', color: C.dark }}>
-        ИТЦ СИБИРЬ
+        ИТЦ СИБИРИ
       </span>
       <div>
         <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 11, letterSpacing: '0.3em', textTransform: 'uppercase', color: C.dark, opacity: 0.55, marginBottom: 10 }}>
