@@ -85,7 +85,7 @@ const PageCover = () => (
       </span>
 
       <div style={{ marginTop: 'auto', paddingBottom: '35mm' }}>
-        <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10, letterSpacing: '0.35em', textTransform: 'uppercase', color: C.amber, marginBottom: 12 }}>
+        <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 15, fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: C.amber, marginBottom: 14 }}>
           Коммерческое предложение
         </p>
         <h1 style={{ fontFamily: "'Oswald', sans-serif", fontSize: 54, fontWeight: 700, lineHeight: 1.35, color: C.light, margin: '0 0 18px' }}>
@@ -142,10 +142,10 @@ const PageProductsAdv = () => (
         <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={8} />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 3, flex: 1 }}>
           {advantages.map(([t, d], i) => (
-            <div key={t} style={{ background: `${C.card}ee`, padding: '13px 14px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 16, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 7, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.light, margin: '0 0 6px', lineHeight: 1.15, minHeight: '2em' }}>{t}</p>
-              <p style={{ fontSize: 10.5, color: C.muted, lineHeight: 1.5, margin: 0 }}>{d}</p>
+            <div key={t} style={{ background: `${C.card}ee`, padding: '22px 22px', borderLeft: `4px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 30, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 14, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 20, fontWeight: 600, color: C.light, margin: '0 0 12px', lineHeight: 1.15 }}>{t}</p>
+              <p style={{ fontSize: 13.5, color: C.muted, lineHeight: 1.6, margin: 0 }}>{d}</p>
             </div>
           ))}
         </div>
@@ -246,7 +246,7 @@ const PageContacts = () => (
     <div style={{ position: 'absolute', left: 0, top: 0, width: 5, height: '100%', background: C.dark, zIndex: 2 }} />
 
     <div style={{ position: 'relative', zIndex: 2, padding: '20mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
-      <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 14, fontWeight: 600, letterSpacing: '0.3em', color: C.dark }}>
+      <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, letterSpacing: '0.25em', color: C.dark }}>
         ИТЦ СИБИРЬ
       </span>
       <div>
