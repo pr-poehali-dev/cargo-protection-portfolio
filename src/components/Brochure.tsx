@@ -119,7 +119,7 @@ const PageProductsAdv = () => (
       {/* ПРОДУКЦИЯ — 2×2 сетка, крупные картинки и текст */}
       <div style={{ marginBottom: 14 }}>
         <SectionHead num="01" label="Продукция" title="Что мы производим" mb={8} />
-        <p style={{ fontSize: 11.5, color: C.muted, lineHeight: 1.5, marginBottom: 12 }}>
+        <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.55, marginBottom: 12 }}>
           Изготавливаем из <strong style={{ color: C.light }}>стали 3 и 09Г2С</strong> толщиной <strong style={{ color: C.light }}>до 8 мм</strong>. Каждая защита проектируется под конкретный узел техники.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
