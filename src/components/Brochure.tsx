@@ -265,7 +265,7 @@ const PageContacts = () => (
           ))}
         </div>
       </div>
-      <p style={{ fontSize: 9, color: C.dark, opacity: 0.4 }}>© 2026 ИТЦ Сибирь · Защита для грузовой техники</p>
+      <p style={{ fontSize: 9, color: C.dark, opacity: 0.4 }}>© 2026 Альфа Альянс · Защита для грузовой техники</p>
     </div>
   </div>
 );
