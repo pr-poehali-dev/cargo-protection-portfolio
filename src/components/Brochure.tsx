@@ -62,19 +62,20 @@ const SectionHead = ({ num, label, title, mb = 10 }: { num: string; label: strin
 // ─── PAGE 1: ОБЛОЖКА ─────────────────────────────────────────────────────────
 const PageCover = () => (
   <div style={{ ...page, padding: 0 }}>
-    {/* фон — картинка целиком видна (contain), не обрезается */}
-    <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+    {/* фон — картинка поднята выше, минимальное затемнение чтобы надписи были видны */}
+    <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end', paddingTop: '30mm' }}>
       <img
         src={HERO}
         alt=""
-        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', opacity: 0.55 }}
+        style={{ maxWidth: '100%', maxHeight: '65%', objectFit: 'contain', opacity: 0.85 }}
       />
     </div>
-    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to right, ${C.dark}ee 35%, ${C.dark}44 100%)`, zIndex: 1 }} />
+    {/* затемнение только снизу — под текстом, верх с грузовиком светлый */}
+    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, ${C.dark}33 0%, ${C.dark}22 45%, ${C.dark}f2 72%, ${C.dark} 100%)`, zIndex: 1 }} />
     <div style={{ position: 'absolute', left: 0, top: 0, width: 5, height: '100%', background: C.amber, zIndex: 2 }} />
 
-    <div style={{ position: 'relative', zIndex: 2, padding: '20mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
-      <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 14, fontWeight: 600, letterSpacing: '0.3em', color: C.amber }}>
+    <div style={{ position: 'relative', zIndex: 2, padding: '18mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
+      <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, letterSpacing: '0.25em', color: C.amber }}>
         ИТЦ СИБИРЬ
       </span>
 
@@ -136,10 +137,10 @@ const PageProductsAdv = () => (
         <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={12} />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 3, flex: 1 }}>
           {advantages.map(([t, d], i) => (
-            <div key={t} style={{ background: `${C.card}ee`, padding: '22px 20px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 10 }}>{String(i + 1).padStart(2, '0')}</span>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 17, fontWeight: 600, color: C.light, margin: '0 0 12px', lineHeight: 1.15 }}>{t}</p>
-              <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.65, margin: 0 }}>{d}</p>
+            <div key={t} style={{ background: `${C.card}ee`, padding: '20px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 12, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 17, fontWeight: 600, color: C.light, margin: '0 0 10px', lineHeight: 1.15, minHeight: '2.3em' }}>{t}</p>
+              <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.6, margin: 0 }}>{d}</p>
             </div>
           ))}
         </div>
@@ -213,14 +214,14 @@ const PageSpecsPricingPortfolio = () => (
         </div>
       </div>
 
-      {/* ПОРТФОЛИО — все картинки одинаковой высоты, contain на карточном фоне */}
+      {/* ПОРТФОЛИО — все фото одинаковой высоты, object-cover для единообразия */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <SectionHead num="05" label="Портфолио" title="Примеры установленных защит" mb={10} />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 9, flex: 1 }}>
           {products.map((p) => (
             <div key={p.name} style={{ background: `${C.card}ee`, border: `1px solid ${C.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ flex: 1, overflow: 'hidden', background: C.card2, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 6 }}>
-                <img src={p.example} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }} />
+              <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+                <img src={p.example} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
               </div>
               <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10.5, fontWeight: 600, color: C.light, padding: '8px 9px', margin: 0, lineHeight: 1.2, flexShrink: 0, background: C.card }}>{p.name}</p>
             </div>
