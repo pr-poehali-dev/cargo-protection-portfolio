@@ -115,7 +115,7 @@ export function exportKpToPptx() {
   s.addText('Продукция', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
   s.addText('Что мы производим', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
   s.addText(
-    'ИТЦ Сибирь — производитель защит для грузовиков и спецтехники. Изготавливаем из стали 3 и 09Г2С толщиной до 8 мм. Работаем с Shacman, FAW, Howo, Sitrak. Нет вашей модели — сделаем 3D-сканирование и спроектируем защиту под вас.',
+    'ИТЦ Сибирь — производит защиты для грузовиков и спецтехники. Изготавливаем из стали 3 и 09Г2С толщиной до 8 мм. Работаем с Shacman, FAW, Howo, Sitrak. Нет вашей модели — сделаем 3D-сканирование и спроектируем защиту под вас.',
     { x: 0.7, y: 2, w: 11.9, h: 1.5, color: GREY, fontSize: 18, fontFace: 'Arial', lineSpacingMultiple: 1.3 }
   );
   products.forEach((p, i) => {

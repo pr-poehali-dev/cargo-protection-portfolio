@@ -14,7 +14,7 @@ const Index = () => {
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src={LOGO} alt="ИТЦ Сибирь" className="h-10 w-10 object-contain" style={{ mixBlendMode: 'screen' }} />
+            <img src={LOGO} alt="ИТЦ Сибирь" className="h-10 w-10 object-contain" style={{ mixBlendMode: 'lighten' }} />
             <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
           <Button onClick={exportKpToPptx} className="gap-2 font-500">
@@ -32,7 +32,7 @@ const Index = () => {
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
           <div className="animate-fade-up mb-6 flex items-center gap-3">
-            <img src={LOGO} alt="ИТЦ Сибирь" className="h-14 w-14 object-contain" style={{ mixBlendMode: 'screen' }} />
+            <img src={LOGO} alt="ИТЦ Сибирь" className="h-14 w-14 object-contain" style={{ mixBlendMode: 'lighten' }} />
             <p className="font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
               Коммерческое предложение · ИТЦ Сибирь
             </p>
@@ -59,7 +59,7 @@ const Index = () => {
       {/* PRODUCTS */}
       <Section num="01" label="Продукция" title="Что мы производим">
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          ИТЦ Сибирь — производитель защит для грузовиков и спецтехники. Изготавливаем из <span className="text-foreground">стали 3 и 09Г2С</span> толщиной <span className="text-foreground">до 8 мм</span>. Каждая защита проектируется под конкретный узел.
+          ИТЦ Сибирь — производит защиты для грузовиков и спецтехники. Изготавливаем из <span className="text-foreground">стали 3 и 09Г2С</span> толщиной <span className="text-foreground">до 8 мм</span>. Каждая защита проектируется под конкретный узел.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {products.map((p) => (
