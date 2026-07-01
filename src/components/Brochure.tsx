@@ -125,12 +125,12 @@ const PageProductsAdv = () => (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {products.map((p) => (
             <div key={p.name} style={{ background: `${C.card}ee`, border: `1px solid ${C.border}`, display: 'flex' }}>
-              <div style={{ width: 150, height: 130, background: C.card2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ width: 175, height: 155, background: C.card2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                 <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
-              <div style={{ padding: '14px 16px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 17, fontWeight: 600, color: C.light, margin: '0 0 8px', lineHeight: 1.2 }}>{p.name}</p>
-                <p style={{ fontSize: 11.5, color: C.muted, margin: 0, lineHeight: 1.5 }}>{p.desc}</p>
+              <div style={{ padding: '18px 18px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 20, fontWeight: 600, color: C.light, margin: '0 0 10px', lineHeight: 1.2 }}>{p.name}</p>
+                <p style={{ fontSize: 13, color: C.muted, margin: 0, lineHeight: 1.55 }}>{p.desc}</p>
               </div>
             </div>
           ))}
@@ -142,10 +142,10 @@ const PageProductsAdv = () => (
         <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={8} />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 3, flex: 1 }}>
           {advantages.map(([t, d], i) => (
-            <div key={t} style={{ background: `${C.card}ee`, padding: '22px 22px', borderLeft: `4px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 30, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 14, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 20, fontWeight: 600, color: C.light, margin: '0 0 12px', lineHeight: 1.15 }}>{t}</p>
-              <p style={{ fontSize: 13.5, color: C.muted, lineHeight: 1.6, margin: 0 }}>{d}</p>
+            <div key={t} style={{ background: `${C.card}ee`, padding: '22px 22px', borderLeft: `4px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 28, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 12, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 19, fontWeight: 600, color: C.light, margin: '0 0 10px', lineHeight: 1.2, minHeight: '2.5em' }}>{t}</p>
+              <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.55, margin: 0 }}>{d}</p>
             </div>
           ))}
         </div>
