@@ -65,7 +65,7 @@ export const fullSet = {
 
 export const advantages = [
   ['Защита от ударов', 'Броня выдерживает удары камней и препятствий на бездорожье'],
-  ['Экономия на ремонте', 'Один ремонт узла дороже комплекта защит от ИТЦ Сибирь'],
+  ['Экономия на ремонте', 'Один ремонт узла дороже комплекта защит от Альфа Альянс'],
   ['Сталь до 8 мм', 'Конструкционная сталь 3 и низколегированная 09Г2С собственного производства'],
   ['3D-проектирование', 'Нет вашей модели? Сделаем 3D-сканирование и спроектируем защиту под вас'],
   ['Антикоррозия', 'Порошковая окраска и антикор-обработка всех узлов'],
@@ -82,17 +82,17 @@ export const specs = [
 ];
 
 export const contacts = {
-  phone: '8-905-975-58-88',
-  email: 'itc2555888@mail.ru',
-  site: 'itc-siberia.ru',
+  phone: '+7 (929) 313-20-80',
+  email: 'alfaallianse-info@mail.ru',
+  site: 'alfa-allianse.ru',
 };
 
 export function exportKpToPptx() {
   const pptx = new pptxgen();
   pptx.defineLayout({ name: 'WIDE', width: 13.33, height: 7.5 });
   pptx.layout = 'WIDE';
-  pptx.author = 'ИТЦ Сибирь';
-  pptx.company = 'ИТЦ Сибирь';
+  pptx.author = 'Альфа Альянс';
+  pptx.company = 'Альфа Альянс';
   pptx.title = 'КП — Защита для грузовой техники';
 
   const bg = { color: DARK };
@@ -101,7 +101,7 @@ export function exportKpToPptx() {
   let s = pptx.addSlide();
   s.background = bg;
   s.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.25, h: 7.5, fill: { color: AMBER } });
-  s.addText('ИТЦ СИБИРЬ', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
+  s.addText('АЛЬФА АЛЬЯНС', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
   s.addText('ЗАЩИТА ДЛЯ\nГРУЗОВОЙ ТЕХНИКИ', { x: 0.7, y: 2.2, w: 11, h: 2, color: LIGHT, fontSize: 54, bold: true, fontFace: 'Arial', lineSpacingMultiple: 0.95 });
   s.addText('Коммерческое предложение · Shacman X3000 и спецтехника', { x: 0.7, y: 4.3, w: 11, h: 0.5, color: GREY, fontSize: 18, fontFace: 'Arial' });
   s.addText(`${contacts.phone} · ${contacts.site}`, { x: 0.7, y: 6.7, w: 11, h: 0.4, color: GREY, fontSize: 12, fontFace: 'Arial' });
@@ -112,7 +112,7 @@ export function exportKpToPptx() {
   s.addText('Продукция', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
   s.addText('Что мы производим', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
   s.addText(
-    'ИТЦ Сибирь — производит защиты для грузовиков и спецтехники. Изготавливаем из стали 3 и 09Г2С толщиной до 8 мм. Работаем с Shacman, FAW, Howo, Sitrak. Нет вашей модели — сделаем 3D-сканирование и спроектируем защиту под вас.',
+    'Альфа Альянс — производит защиты для грузовиков и спецтехники. Изготавливаем из стали 3 и 09Г2С толщиной до 8 мм. Работаем с Shacman, FAW, Howo, Sitrak. Нет вашей модели — сделаем 3D-сканирование и спроектируем защиту под вас.',
     { x: 0.7, y: 2, w: 11.9, h: 1.5, color: GREY, fontSize: 18, fontFace: 'Arial', lineSpacingMultiple: 1.3 }
   );
   products.forEach((p, i) => {

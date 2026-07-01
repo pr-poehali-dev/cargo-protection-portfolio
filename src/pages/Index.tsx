@@ -43,7 +43,7 @@ const Index = () => {
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
             <Logo size={44} />
-            <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
+            <span className="font-display text-lg font-600 tracking-wide">АЛЬФА АЛЬЯНС</span>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -77,7 +77,7 @@ const Index = () => {
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
           <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary md:ml-1">
-            Коммерческое предложение · ИТЦ Сибирь
+            Коммерческое предложение · Альфа Альянс
           </p>
           <h1 className="animate-fade-up mt-6 font-display text-5xl font-700 leading-[0.95] md:text-8xl" style={{ animationDelay: '0.1s' }}>
             ЗАЩИТА ДЛЯ<br />ГРУЗОВОЙ ТЕХНИКИ
@@ -97,7 +97,7 @@ const Index = () => {
       {/* PRODUCTS */}
       <Section num="01" label="Продукция" title="Что мы производим">
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          ИТЦ Сибирь — производит защиты для грузовиков и спецтехники. Изготавливаем из <span className="text-foreground">стали 3 и 09Г2С</span> толщиной <span className="text-foreground">до 8 мм</span>. Каждая защита проектируется под конкретный узел.
+          Альфа Альянс — производит защиты для грузовиков и спецтехники. Изготавливаем из <span className="text-foreground">стали 3 и 09Г2С</span> толщиной <span className="text-foreground">до 8 мм</span>. Каждая защита проектируется под конкретный узел.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {products.map((p) => (
@@ -208,7 +208,7 @@ const Index = () => {
       {/* CONTACTS */}
       <section className="bg-primary text-primary-foreground" style={{ pageBreakBefore: 'always' }}>
         <div className="container py-24">
-          <p className="font-display text-sm font-600 uppercase tracking-[0.35em] opacity-70">Контакты · ИТЦ Сибирь</p>
+          <p className="font-display text-sm font-600 uppercase tracking-[0.35em] opacity-70">Контакты · Альфа Альянс</p>
           <h2 className="mt-4 max-w-2xl font-display text-4xl font-700 leading-tight md:text-6xl">
             Готовы защитить вашу технику
           </h2>
@@ -229,7 +229,7 @@ const Index = () => {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 ИТЦ Сибирь · Защита для грузовой техники
+        © 2026 Альфа Альянс · Защита для грузовой техники
       </footer>
       </div>}
     </div>
