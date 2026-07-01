@@ -83,8 +83,7 @@ export const specs = [
 
 export const contacts = {
   phone: '8-905-975-58-88',
-  email1: 'itc2555888@mail.ru',
-  email2: 'itcsibiri@yandex.ru',
+  email: 'itc2555888@mail.ru',
   site: 'itc-siberia.ru',
 };
 
@@ -190,8 +189,7 @@ export function exportKpToPptx() {
   s.addText('ИТЦ Сибирь — защитим вашу технику', { x: 0.7, y: 1.9, w: 12, h: 1, color: DARK, fontSize: 40, bold: true, fontFace: 'Arial' });
   s.addText([
     { text: `Телефон:  ${contacts.phone}\n`, options: { bold: true } },
-    { text: `Email:  ${contacts.email1}\n`, options: {} },
-    { text: `Email:  ${contacts.email2}\n`, options: {} },
+    { text: `Email:  ${contacts.email}\n`, options: {} },
     { text: `Сайт:  ${contacts.site}`, options: {} },
   ], { x: 0.7, y: 3.4, w: 11, h: 2.5, color: DARK, fontSize: 22, fontFace: 'Arial', lineSpacingMultiple: 1.5 });
 
