@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-import { exportKpToPptx, tiers, advantages, specs } from '@/lib/exportPptx';
+import { exportKpToPptx, products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
 
-const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/files/3111c981-b441-4eb0-b659-923906d767c7.jpg';
+const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/329e3a44-9cef-4659-a8ad-377081553f51.png';
 
-const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'Crosshair', 'Droplets', 'Timer'];
+const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'ScanLine', 'Droplets', 'Crosshair'];
 
 const Index = () => {
   return (
@@ -14,31 +14,32 @@ const Index = () => {
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center bg-primary text-primary-foreground">
-              <Icon name="Truck" size={20} />
+              <Icon name="Shield" size={20} />
             </div>
-            <span className="font-display text-lg font-600 tracking-wide">ПОРТ ВОСТОК</span>
+            <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
           <Button onClick={exportKpToPptx} className="gap-2 font-500">
             <Icon name="Download" size={16} />
-            Скачать в PowerPoint
+            <span className="hidden sm:inline">Скачать в PowerPoint</span>
+            <span className="sm:hidden">Скачать КП</span>
           </Button>
         </div>
       </header>
 
       {/* HERO */}
       <section className="relative overflow-hidden diagonal-clip">
-        <img src={HERO} alt="Shacman X3000" className="absolute inset-0 h-full w-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
-        <div className="steel-grid absolute inset-0 opacity-40" />
+        <img src={HERO} alt="Комплект защиты Shacman X3000" className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
+        <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
           <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
-            Коммерческое предложение
+            Коммерческое предложение · ИТЦ Сибирь
           </p>
           <h1 className="animate-fade-up mt-6 font-display text-5xl font-700 leading-[0.95] md:text-8xl" style={{ animationDelay: '0.1s' }}>
             ЗАЩИТА ДЛЯ<br />ГРУЗОВОЙ ТЕХНИКИ
           </h1>
           <p className="animate-fade-up mt-8 max-w-xl text-lg text-muted-foreground" style={{ animationDelay: '0.2s' }}>
-            Броня для двигателя, радиатора, картера и КПП грузовиков Shacman X3000 и спецтехники. Сохраните узлы от ударов и дорогого ремонта.
+            Производим защиту картера, топливного бака, воздушного фильтра и датчиков для грузовиков Shacman X3000 и спецтехники. Сталь 3 и 09Г2С толщиной до 8 мм.
           </p>
           <div className="animate-fade-up mt-10 flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
             <Button onClick={exportKpToPptx} size="lg" className="gap-2 font-500 amber-glow">
@@ -53,16 +54,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SERVICE */}
-      <Section num="01" label="Услуга" title="Установка защиты двигателя и узлов">
+      {/* PRODUCTS */}
+      <Section num="01" label="Продукция" title="Что мы производим">
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          Устанавливаем защиту двигателя, радиатора, картера и КПП на грузовики и спецтехнику. Собственный сервисный центр <span className="text-foreground">1500 м²</span>, более <span className="text-foreground">80 000</span> единиц запчастей в наличии. Работаем с Shacman, FAW, Shaanxi, Howo, Sitrak. Возможен выезд.
+          ИТЦ Сибирь — производитель защит для грузовиков и спецтехники. Изготавливаем из <span className="text-foreground">стали 3 и 09Г2С</span> толщиной <span className="text-foreground">до 8 мм</span>. Каждая защита проектируется под конкретный узел.
         </p>
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {[['Cog', 'Двигатель'], ['Fan', 'Радиатор'], ['Shield', 'Картер'], ['Settings2', 'КПП']].map(([ic, t]) => (
-            <div key={t} className="group border border-border bg-card p-6 transition-colors hover:border-primary">
-              <Icon name={ic} size={28} className="text-primary" />
-              <p className="mt-4 font-display text-xl font-600">{t}</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {products.map((p) => (
+            <div key={p.name} className="group flex gap-5 overflow-hidden border border-border bg-card transition-colors hover:border-primary">
+              <div className="relative h-auto w-32 shrink-0 overflow-hidden">
+                <img src={p.img} alt={p.name} className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+              </div>
+              <div className="flex flex-col justify-center py-5 pr-5">
+                <div className="flex items-center gap-2 text-primary">
+                  <Icon name={p.icon} size={20} />
+                  <h3 className="font-display text-xl font-600 text-foreground">{p.name}</h3>
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                <p className="mt-3 font-display text-lg font-700 text-primary">{p.price}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -87,7 +97,7 @@ const Index = () => {
       <Section num="03" label="Характеристики" title="Технические характеристики и материалы">
         <div className="overflow-hidden border border-border">
           {specs.map(([k, v], i) => (
-            <div key={k} className={`grid grid-cols-1 gap-1 px-6 py-5 md:grid-cols-[240px_1fr] ${i % 2 ? 'bg-card' : 'bg-secondary/40'}`}>
+            <div key={k} className={`grid grid-cols-1 gap-1 px-6 py-5 md:grid-cols-[260px_1fr] ${i % 2 ? 'bg-card' : 'bg-secondary/40'}`}>
               <span className="font-display font-600 uppercase tracking-wide text-primary">{k}</span>
               <span className="text-foreground">{v}</span>
             </div>
@@ -95,45 +105,62 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* TIERS */}
-      <Section num="04" label="Тарифы" title="Варианты защиты с ценами" dark>
-        <div className="grid gap-6 md:grid-cols-3">
-          {tiers.map((t, i) => {
-            const featured = i === 1;
-            return (
-              <div key={t.name} className={`relative flex flex-col border p-8 ${featured ? 'border-primary bg-secondary amber-glow' : 'border-border bg-card'}`}>
-                <span className={`self-start px-3 py-1 font-display text-xs font-600 uppercase tracking-[0.2em] ${featured ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
-                  {t.level}
-                </span>
-                <h3 className="mt-6 font-display text-3xl font-700">{t.name}</h3>
-                <p className="mt-2 font-display text-4xl font-700 text-primary">{t.price}</p>
-                <ul className="mt-6 flex-1 space-y-3">
-                  {t.items.map((it) => (
-                    <li key={it} className="flex items-start gap-3 text-muted-foreground">
-                      <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary" />
-                      <span>{it}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="mt-8 w-full font-500" variant={featured ? 'default' : 'outline'}>
-                  Выбрать
-                </Button>
+      {/* PRICING */}
+      <Section num="04" label="Цены" title="Варианты защит с ценами" dark>
+        <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
+          {/* individual list */}
+          <div className="flex flex-col divide-y divide-border border border-border bg-card">
+            {products.map((p) => (
+              <div key={p.name} className="flex items-center justify-between gap-4 p-6 transition-colors hover:bg-secondary/50">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center bg-primary/10 text-primary">
+                    <Icon name={p.icon} size={20} />
+                  </div>
+                  <span className="font-display text-lg font-600">{p.name}</span>
+                </div>
+                <span className="font-display text-xl font-700 text-primary">{p.price}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
+          {/* full set */}
+          <div className="relative flex flex-col justify-center border border-primary bg-secondary p-8 amber-glow">
+            <span className="self-start bg-primary px-3 py-1 font-display text-xs font-600 uppercase tracking-[0.2em] text-primary-foreground">
+              Полный комплект
+            </span>
+            <p className="mt-6 font-display text-5xl font-700 text-primary">{fullSet.price}</p>
+            <p className="mt-2 font-display text-sm font-600 uppercase tracking-wide text-primary/80">{fullSet.save}</p>
+            <ul className="mt-6 space-y-3">
+              {fullSet.items.map((it) => (
+                <li key={it} className="flex items-start gap-3 text-muted-foreground">
+                  <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary" />
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+            <Button className="mt-8 w-full font-500">Заказать комплект</Button>
+          </div>
+        </div>
+        <div className="mt-6 flex items-start gap-4 border border-border bg-card p-6">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-primary/10 text-primary">
+            <Icon name="ScanLine" size={22} />
+          </div>
+          <div>
+            <h3 className="font-display text-lg font-600">Нет вашей модели?</h3>
+            <p className="mt-1 text-muted-foreground">Сделаем 3D-сканирование техники и спроектируем защиту индивидуально под вас.</p>
+          </div>
         </div>
       </Section>
 
       {/* EXAMPLES */}
-      <Section num="05" label="Портфолио" title="Примеры установленной защиты">
-        <div className="grid gap-6 md:grid-cols-3">
-          {['Shacman X3000 · картер', 'Howo · двигатель + КПП', 'Sitrak · полный комплект'].map((t) => (
-            <div key={t} className="group overflow-hidden border border-border bg-card">
+      <Section num="05" label="Портфолио" title="Примеры установленных защит">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {products.map((p) => (
+            <div key={p.name} className="group overflow-hidden border border-border bg-card">
               <div className="relative h-56 overflow-hidden">
-                <img src={HERO} alt={t} className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+                <img src={p.example} alt={p.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
               </div>
-              <p className="p-5 font-display text-lg font-600">{t}</p>
+              <p className="p-5 font-display text-base font-600">{p.name}</p>
             </div>
           ))}
         </div>
@@ -142,16 +169,21 @@ const Index = () => {
       {/* CONTACTS */}
       <section className="bg-primary text-primary-foreground">
         <div className="container py-24">
-          <p className="font-display text-sm font-600 uppercase tracking-[0.35em] opacity-70">Контакты</p>
+          <p className="font-display text-sm font-600 uppercase tracking-[0.35em] opacity-70">Контакты · ИТЦ Сибирь</p>
           <h2 className="mt-4 max-w-2xl font-display text-4xl font-700 leading-tight md:text-6xl">
             Готовы защитить вашу технику
           </h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {[['Phone', 'Телефон', '+7 (800) 000-00-00'], ['Mail', 'Email', 'info@port-vostok.ru'], ['Globe', 'Сайт', 'port-vostok.ru'], ['MapPin', 'Адрес', 'г. Красноярск']].map(([ic, l, v]) => (
-              <div key={l}>
+            {[
+              ['Phone', 'Телефон', contacts.phone],
+              ['Mail', 'Email', contacts.email1],
+              ['Mail', 'Email', contacts.email2],
+              ['Globe', 'Сайт', contacts.site],
+            ].map(([ic, l, v], i) => (
+              <div key={i}>
                 <Icon name={ic} size={24} className="opacity-80" />
                 <p className="mt-3 font-display text-sm font-600 uppercase tracking-wide opacity-70">{l}</p>
-                <p className="mt-1 text-lg font-500">{v}</p>
+                <p className="mt-1 text-lg font-500 break-all">{v}</p>
               </div>
             ))}
           </div>
@@ -163,7 +195,7 @@ const Index = () => {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Порт Восток · Защита для грузовой техники Shacman
+        © 2026 ИТЦ Сибирь · Защита для грузовой техники
       </footer>
     </div>
   );

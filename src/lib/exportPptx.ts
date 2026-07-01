@@ -6,59 +6,95 @@ const AMBER = 'F5A623';
 const LIGHT = 'F4F1EA';
 const GREY = '9AA0AC';
 
-export interface Tier {
+export interface Product {
   name: string;
-  level: string;
   price: string;
-  items: string[];
+  priceNum: number;
+  desc: string;
+  icon: string;
+  img: string;
+  example: string;
 }
 
-export const tiers: Tier[] = [
+export const products: Product[] = [
   {
-    name: 'Базовая',
-    level: 'Старт',
-    price: 'от 28 000 ₽',
-    items: ['Защита картера двигателя', 'Сталь 3 мм', 'Порошковая окраска', 'Монтаж 1 день', 'Гарантия 12 мес.'],
+    name: 'Защита картера',
+    price: '35 000 ₽',
+    priceNum: 35000,
+    desc: 'Закрывает картер двигателя от ударов камней и препятствий на бездорожье.',
+    icon: 'Shield',
+    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/52b2b4ed-c577-4bc7-b445-b1c56993dbab.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/d58f8904-e9cf-4129-b892-281458099dd6.jpg',
   },
   {
-    name: 'Оптимальная',
-    level: 'Рекомендуем',
-    price: 'от 54 000 ₽',
-    items: ['Защита двигателя и КПП', 'Защита радиатора', 'Сталь 4 мм', 'Антикор-покрытие', 'Монтаж 1–2 дня', 'Гарантия 24 мес.'],
+    name: 'Защита топливного бака',
+    price: '25 000 ₽',
+    priceNum: 25000,
+    desc: 'Оберегает бак от пробоя и деформации, сохраняет топливную систему.',
+    icon: 'Fuel',
+    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/a8b63c77-d757-4ec3-b126-3815e80722d7.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/d6b3960b-b60c-4580-88ab-41c996fe91f7.jpg',
   },
   {
-    name: 'Максимальная',
-    level: 'Off-road',
-    price: 'от 92 000 ₽',
-    items: ['Полный комплект защиты', 'Двигатель, КПП, картер, радиатор', 'Сталь 5 мм / композит', 'Усиленные кронштейны', 'Монтаж 2–3 дня', 'Гарантия 36 мес.'],
+    name: 'Защита воздушного фильтра',
+    price: '20 000 ₽',
+    priceNum: 20000,
+    desc: 'Защищает воздушный фильтр от грязи, воды и механических повреждений.',
+    icon: 'Wind',
+    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/3cc942f3-9338-4f7f-a482-38f3cbed6936.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/3cc942f3-9338-4f7f-a482-38f3cbed6936.jpg',
+  },
+  {
+    name: 'Защита датчиков',
+    price: '15 000 ₽',
+    priceNum: 15000,
+    desc: 'Броня для датчиков блокировки и электроники ходовой части.',
+    icon: 'Cpu',
+    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/41946543-4b24-4a84-9df1-56a01d547183.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/5854e476-a48e-4f66-aa89-950e34805a9a.jpg',
   },
 ];
+
+export const fullSet = {
+  name: 'Полный комплект защит',
+  price: '90 000 ₽',
+  priceNum: 90000,
+  save: 'Выгода 20 000 ₽',
+  items: ['Защита картера', 'Защита топливного бака', 'Защита воздушного фильтра', 'Защита датчиков'],
+};
 
 export const advantages = [
   ['Защита от ударов', 'Броня выдерживает удары камней и препятствий на бездорожье'],
-  ['Экономия на ремонте', 'Один ремонт двигателя дороже полного комплекта защиты'],
-  ['Сталь до 5 мм', 'Прочные листовые стали и композиты собственного производства'],
-  ['Точная посадка', 'Заводские крепления Shacman X3000, без сверления'],
+  ['Экономия на ремонте', 'Один ремонт узла дороже комплекта защит от ИТЦ Сибирь'],
+  ['Сталь до 8 мм', 'Конструкционная сталь 3 и низколегированная 09Г2С собственного производства'],
+  ['3D-проектирование', 'Нет вашей модели? Сделаем 3D-сканирование и спроектируем защиту под вас'],
   ['Антикоррозия', 'Порошковая окраска и антикор-обработка всех узлов'],
-  ['Быстрый монтаж', 'Установка от 1 дня в сервисном центре 1500 м²'],
+  ['Точная посадка', 'Заводские точки крепления, без лишнего сверления'],
 ];
 
 export const specs = [
-  ['Материал', 'Сталь 3–5 мм, композитные панели'],
+  ['Материал', 'Сталь 3 и 09Г2С, толщина до 8 мм'],
   ['Покрытие', 'Порошковая окраска + антикор'],
   ['Крепёж', 'Заводские точки, усиленные кронштейны'],
-  ['Совместимость', 'Shacman X3000, FAW, Howo, Sitrak'],
-  ['Узлы защиты', 'Двигатель, КПП, картер, радиатор'],
-  ['Гарантия', 'До 36 месяцев'],
+  ['Совместимость', 'Shacman X3000, FAW, Howo, Sitrak и др.'],
+  ['Нет вашей модели?', '3D-сканирование и проектирование под ваш авто'],
+  ['Узлы защиты', 'Картер, топливный бак, воздушный фильтр, датчики'],
 ];
+
+export const contacts = {
+  phone: '8-905-975-58-88',
+  email1: 'itc2555888@mail.ru',
+  email2: 'itcsibiri@yandex.ru',
+  site: 'itc-siberia.ru',
+};
 
 export function exportKpToPptx() {
   const pptx = new pptxgen();
   pptx.defineLayout({ name: 'WIDE', width: 13.33, height: 7.5 });
   pptx.layout = 'WIDE';
-  pptx.author = 'Порт Восток';
-  pptx.company = 'Порт Восток';
-  pptx.title = 'КП — Защита для грузовиков Shacman';
+  pptx.author = 'ИТЦ Сибирь';
+  pptx.company = 'ИТЦ Сибирь';
+  pptx.title = 'КП — Защита для грузовой техники';
 
   const bg = { color: DARK };
 
@@ -66,23 +102,24 @@ export function exportKpToPptx() {
   let s = pptx.addSlide();
   s.background = bg;
   s.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.25, h: 7.5, fill: { color: AMBER } });
-  s.addText('ПОРТ ВОСТОК', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
+  s.addText('ИТЦ СИБИРЬ', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
   s.addText('ЗАЩИТА ДЛЯ\nГРУЗОВОЙ ТЕХНИКИ', { x: 0.7, y: 2.2, w: 11, h: 2, color: LIGHT, fontSize: 54, bold: true, fontFace: 'Arial', lineSpacingMultiple: 0.95 });
   s.addText('Коммерческое предложение · Shacman X3000 и спецтехника', { x: 0.7, y: 4.3, w: 11, h: 0.5, color: GREY, fontSize: 18, fontFace: 'Arial' });
-  s.addText('Красноярск · +7 (800) 000-00-00 · port-vostok.ru', { x: 0.7, y: 6.7, w: 11, h: 0.4, color: GREY, fontSize: 12, fontFace: 'Arial' });
+  s.addText(`${contacts.phone} · ${contacts.site}`, { x: 0.7, y: 6.7, w: 11, h: 0.4, color: GREY, fontSize: 12, fontFace: 'Arial' });
 
-  // 2. Service
+  // 2. Service / products intro
   s = pptx.addSlide();
   s.background = bg;
-  s.addText('Услуга', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
-  s.addText('Установка защиты двигателя и узлов', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
+  s.addText('Продукция', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
+  s.addText('Что мы производим', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
   s.addText(
-    'Мы устанавливаем защиту двигателя, радиатора, картера и КПП на грузовики Shacman и спецтехнику. Собственный сервисный центр 1500 м², более 80 000 единиц запчастей в наличии. Работаем с Shacman, FAW, Shaanxi, Howo, Sitrak. Возможен выезд.',
-    { x: 0.7, y: 2, w: 11.9, h: 2, color: GREY, fontSize: 18, fontFace: 'Arial', lineSpacingMultiple: 1.3 }
+    'ИТЦ Сибирь — производитель защит для грузовиков и спецтехники. Изготавливаем из стали 3 и 09Г2С толщиной до 8 мм. Работаем с Shacman, FAW, Howo, Sitrak. Нет вашей модели — сделаем 3D-сканирование и спроектируем защиту под вас.',
+    { x: 0.7, y: 2, w: 11.9, h: 1.5, color: GREY, fontSize: 18, fontFace: 'Arial', lineSpacingMultiple: 1.3 }
   );
-  ['Двигатель', 'Радиатор', 'Картер', 'КПП'].forEach((t, i) => {
-    s.addShape(pptx.ShapeType.rect, { x: 0.7 + i * 3, y: 4.4, w: 2.7, h: 1.6, fill: { color: CARD }, line: { color: AMBER, width: 1 } });
-    s.addText(t, { x: 0.7 + i * 3, y: 4.4, w: 2.7, h: 1.6, color: LIGHT, fontSize: 22, bold: true, align: 'center', valign: 'middle', fontFace: 'Arial' });
+  products.forEach((p, i) => {
+    s.addShape(pptx.ShapeType.rect, { x: 0.7 + i * 3, y: 4.2, w: 2.7, h: 1.9, fill: { color: CARD }, line: { color: AMBER, width: 1 } });
+    s.addText(p.name, { x: 0.75 + i * 3, y: 4.35, w: 2.6, h: 1, color: LIGHT, fontSize: 16, bold: true, align: 'center', valign: 'middle', fontFace: 'Arial' });
+    s.addText(p.price, { x: 0.75 + i * 3, y: 5.5, w: 2.6, h: 0.5, color: AMBER, fontSize: 18, bold: true, align: 'center', fontFace: 'Arial' });
   });
 
   // 3. Advantages
@@ -112,45 +149,47 @@ export function exportKpToPptx() {
   ]);
   s.addTable(rows, { x: 0.7, y: 2.1, w: 11.9, colW: [3.5, 8.4], rowH: 0.65, border: { type: 'solid', color: DARK, pt: 2 }, fontFace: 'Arial' });
 
-  // 5. Tiers / pricing
+  // 5. Pricing
   s = pptx.addSlide();
   s.background = bg;
-  s.addText('Тарифы', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
-  s.addText('Варианты защиты с ценами', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
-  tiers.forEach((t, i) => {
-    const x = 0.7 + i * 4.1;
-    const featured = i === 1;
-    s.addShape(pptx.ShapeType.rect, { x, y: 2.1, w: 3.85, h: 4.8, fill: { color: featured ? '242833' : CARD }, line: featured ? { color: AMBER, width: 2 } : { color: '2A2F3A', width: 1 } });
-    s.addShape(pptx.ShapeType.rect, { x, y: 2.1, w: 3.85, h: 0.5, fill: { color: featured ? AMBER : '2A2F3A' } });
-    s.addText(t.level.toUpperCase(), { x, y: 2.1, w: 3.85, h: 0.5, color: featured ? DARK : GREY, fontSize: 12, bold: true, align: 'center', valign: 'middle', charSpacing: 2, fontFace: 'Arial' });
-    s.addText(t.name, { x: x + 0.3, y: 2.8, w: 3.3, h: 0.5, color: LIGHT, fontSize: 24, bold: true, fontFace: 'Arial' });
-    s.addText(t.price, { x: x + 0.3, y: 3.35, w: 3.3, h: 0.6, color: AMBER, fontSize: 26, bold: true, fontFace: 'Arial' });
-    s.addText(t.items.map((it) => `•  ${it}`).join('\n'), { x: x + 0.3, y: 4.1, w: 3.3, h: 2.6, color: GREY, fontSize: 13, fontFace: 'Arial', lineSpacingMultiple: 1.35 });
+  s.addText('Цены', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
+  s.addText('Варианты защит с ценами', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
+  products.forEach((p, i) => {
+    const y = 2.1 + i * 0.75;
+    s.addShape(pptx.ShapeType.rect, { x: 0.7, y, w: 7.6, h: 0.65, fill: { color: i % 2 ? CARD : '20242F' } });
+    s.addText(p.name, { x: 0.9, y, w: 5.5, h: 0.65, color: LIGHT, fontSize: 17, bold: true, valign: 'middle', fontFace: 'Arial' });
+    s.addText(p.price, { x: 6.4, y, w: 1.7, h: 0.65, color: AMBER, fontSize: 18, bold: true, align: 'right', valign: 'middle', fontFace: 'Arial' });
   });
+  // full set card
+  s.addShape(pptx.ShapeType.rect, { x: 8.6, y: 2.1, w: 4, h: 3.65, fill: { color: '242833' }, line: { color: AMBER, width: 2 } });
+  s.addText('ПОЛНЫЙ КОМПЛЕКТ', { x: 8.6, y: 2.35, w: 4, h: 0.4, color: AMBER, fontSize: 13, bold: true, align: 'center', charSpacing: 2, fontFace: 'Arial' });
+  s.addText(fullSet.price, { x: 8.6, y: 2.9, w: 4, h: 0.9, color: LIGHT, fontSize: 40, bold: true, align: 'center', fontFace: 'Arial' });
+  s.addText(fullSet.save, { x: 8.6, y: 3.85, w: 4, h: 0.4, color: AMBER, fontSize: 15, bold: true, align: 'center', fontFace: 'Arial' });
+  s.addText('Все 4 защиты в едином комплекте по выгодной цене', { x: 8.9, y: 4.4, w: 3.4, h: 1.1, color: GREY, fontSize: 14, align: 'center', fontFace: 'Arial', lineSpacingMultiple: 1.2 });
 
   // 6. Examples
   s = pptx.addSlide();
   s.background = bg;
   s.addText('Портфолио', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 3, fontFace: 'Arial' });
-  s.addText('Примеры установленной защиты', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
-  ['Shacman X3000 · картер', 'Howo · двигатель + КПП', 'Sitrak · полный комплект'].forEach((t, i) => {
-    const x = 0.7 + i * 4.1;
-    s.addShape(pptx.ShapeType.rect, { x, y: 2.2, w: 3.85, h: 3, fill: { color: CARD }, line: { color: '2A2F3A', width: 1 } });
-    s.addText('IMG', { x, y: 2.2, w: 3.85, h: 3, color: '3A3F4A', fontSize: 20, bold: true, align: 'center', valign: 'middle', fontFace: 'Arial' });
-    s.addText(t, { x, y: 5.35, w: 3.85, h: 0.5, color: LIGHT, fontSize: 15, bold: true, align: 'center', fontFace: 'Arial' });
+  s.addText('Примеры установленных защит', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
+  products.forEach((p, i) => {
+    const x = 0.7 + i * 3;
+    s.addShape(pptx.ShapeType.rect, { x, y: 2.3, w: 2.75, h: 2.6, fill: { color: CARD }, line: { color: '2A2F3A', width: 1 } });
+    s.addImage({ path: p.example, x: x + 0.1, y: 2.4, w: 2.55, h: 2.1, sizing: { type: 'cover', w: 2.55, h: 2.1 } });
+    s.addText(p.name, { x, y: 5.0, w: 2.75, h: 0.5, color: LIGHT, fontSize: 13, bold: true, align: 'center', fontFace: 'Arial' });
   });
 
   // 7. Contacts
   s = pptx.addSlide();
   s.background = { color: AMBER };
-  s.addText('СВЯЖИТЕСЬ С НАМИ', { x: 0.7, y: 1.5, w: 11, h: 0.5, color: DARK, fontSize: 16, bold: true, charSpacing: 4, fontFace: 'Arial' });
-  s.addText('Готовы защитить вашу технику', { x: 0.7, y: 2.1, w: 11, h: 1, color: DARK, fontSize: 44, bold: true, fontFace: 'Arial' });
+  s.addText('СВЯЖИТЕСЬ С НАМИ', { x: 0.7, y: 1.3, w: 11, h: 0.5, color: DARK, fontSize: 16, bold: true, charSpacing: 4, fontFace: 'Arial' });
+  s.addText('ИТЦ Сибирь — защитим вашу технику', { x: 0.7, y: 1.9, w: 12, h: 1, color: DARK, fontSize: 40, bold: true, fontFace: 'Arial' });
   s.addText([
-    { text: 'Телефон:  +7 (800) 000-00-00\n', options: { bold: true } },
-    { text: 'Email:  info@port-vostok.ru\n', options: {} },
-    { text: 'Сайт:  port-vostok.ru\n', options: {} },
-    { text: 'Адрес:  г. Красноярск, сервисный центр 1500 м²', options: {} },
-  ], { x: 0.7, y: 3.6, w: 11, h: 2.5, color: DARK, fontSize: 22, fontFace: 'Arial', lineSpacingMultiple: 1.5 });
+    { text: `Телефон:  ${contacts.phone}\n`, options: { bold: true } },
+    { text: `Email:  ${contacts.email1}\n`, options: {} },
+    { text: `Email:  ${contacts.email2}\n`, options: {} },
+    { text: `Сайт:  ${contacts.site}`, options: {} },
+  ], { x: 0.7, y: 3.4, w: 11, h: 2.5, color: DARK, fontSize: 22, fontFace: 'Arial', lineSpacingMultiple: 1.5 });
 
-  pptx.writeFile({ fileName: 'КП_Защита_Shacman_ПортВосток.pptx' });
+  pptx.writeFile({ fileName: 'КП_Защита_ИТЦ_Сибирь.pptx' });
 }
