@@ -55,7 +55,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
-          <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
+          <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary md:ml-1">
             Коммерческое предложение · ИТЦ Сибирь
           </p>
           <h1 className="animate-fade-up mt-6 font-display text-5xl font-700 leading-[0.95] md:text-8xl" style={{ animationDelay: '0.1s' }}>
