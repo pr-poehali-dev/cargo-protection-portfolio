@@ -202,10 +202,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <Button onClick={exportKpToPptx} size="lg" variant="secondary" className="mt-12 gap-2 font-500">
-            <Icon name="Download" size={18} />
-            Скачать КП в PowerPoint
-          </Button>
         </div>
       </section>
 
