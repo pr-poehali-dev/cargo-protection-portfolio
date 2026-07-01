@@ -62,13 +62,13 @@ const SectionHead = ({ num, label, title, mb = 10 }: { num: string; label: strin
 // ─── PAGE 1: ОБЛОЖКА ─────────────────────────────────────────────────────────
 const PageCover = () => (
   <div style={{ ...page, padding: 0 }}>
-    {/* фон отдалён (объект более мелкий), более видимый opacity */}
+    {/* фон — весь грузовик виден, менее затемнён */}
     <img
       src={HERO}
       alt=""
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '70% center', opacity: 0.65, zIndex: 0 }}
+      style={{ position: 'absolute', inset: '-8% -5%', width: '110%', height: '110%', objectFit: 'cover', objectPosition: 'center center', opacity: 0.75, zIndex: 0 }}
     />
-    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to right, ${C.dark} 50%, ${C.dark}55 100%)`, zIndex: 1 }} />
+    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to right, ${C.dark}e0 45%, ${C.dark}33 100%)`, zIndex: 1 }} />
     <div style={{ position: 'absolute', left: 0, top: 0, width: 5, height: '100%', background: C.amber, zIndex: 2 }} />
 
     <div style={{ position: 'relative', zIndex: 2, padding: '20mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
@@ -130,16 +130,29 @@ const PageProductsAdv = () => (
         </div>
       </div>
 
-      {/* ПРЕИМУЩЕСТВА — flex: 1 чтобы занять оставшееся место */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      {/* ПРЕИМУЩЕСТВА — фиксированные карточки без растяжки */}
+      <div>
         <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={10} />
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 2, flex: 1 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 2 }}>
           {advantages.map(([t, d]) => (
-            <div key={t} style={{ background: `${C.card}ee`, padding: '14px 13px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column' }}>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.light, margin: '0 0 6px' }}>{t}</p>
-              <p style={{ fontSize: 9.5, color: C.muted, lineHeight: 1.45, margin: 0, flex: 1 }}>{d}</p>
+            <div key={t} style={{ background: `${C.card}ee`, padding: '16px 14px', borderLeft: `3px solid ${C.amber}` }}>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.light, margin: '0 0 7px' }}>{t}</p>
+              <p style={{ fontSize: 9.5, color: C.muted, lineHeight: 1.5, margin: 0 }}>{d}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Янтарный акцент-блок внизу */}
+      <div style={{ marginTop: 'auto', background: `${C.amber}18`, border: `1px solid ${C.amber}44`, padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ width: 4, height: 40, background: C.amber, flexShrink: 0, borderRadius: 2 }} />
+        <div>
+          <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.amber, margin: '0 0 3px' }}>
+            Нет вашей модели техники?
+          </p>
+          <p style={{ fontSize: 10, color: C.muted, margin: 0, lineHeight: 1.5 }}>
+            Выполним 3D-сканирование и спроектируем защиту индивидуально — под любую марку и модель грузовика или спецтехники.
+          </p>
         </div>
       </div>
 
