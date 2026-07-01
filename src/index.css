@@ -135,3 +135,46 @@
     animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #141821 !important;
+    color: #f4f1ea !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .diagonal-clip {
+    clip-path: none !important;
+  }
+
+  .amber-glow {
+    box-shadow: none !important;
+  }
+
+  .animate-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+}

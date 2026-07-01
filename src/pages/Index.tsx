@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-import { exportKpToPptx, products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
+import { products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
+
+const downloadPdf = () => window.print();
 
 const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/329e3a44-9cef-4659-a8ad-377081553f51.png';
 const LOGO_SRC = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/de647896-1f60-4e98-8ce2-6fe07d11fbe4.png';
@@ -39,10 +41,10 @@ const Index = () => {
             <Logo size={44} />
             <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
-          <Button onClick={exportKpToPptx} className="gap-2 font-500">
+          <Button onClick={downloadPdf} className="gap-2 font-500 no-print">
             <Icon name="Download" size={16} />
-            <span className="hidden sm:inline">Скачать в PowerPoint</span>
-            <span className="sm:hidden">Скачать КП</span>
+            <span className="hidden sm:inline">Скачать PDF</span>
+            <span className="sm:hidden">PDF</span>
           </Button>
         </div>
       </header>
@@ -63,9 +65,9 @@ const Index = () => {
             Производим защиту картера, топливного бака, воздушного фильтра и датчиков для грузовиков Shacman X3000 и спецтехники. Сталь 3 и 09Г2С толщиной до 8 мм.
           </p>
           <div className="animate-fade-up mt-10" style={{ animationDelay: '0.3s' }}>
-            <Button onClick={exportKpToPptx} size="lg" className="gap-2 font-500 amber-glow">
+            <Button onClick={downloadPdf} size="lg" className="gap-2 font-500 amber-glow no-print">
               <Icon name="FileDown" size={18} />
-              Скачать презентацию
+              Скачать PDF
             </Button>
           </div>
         </div>
