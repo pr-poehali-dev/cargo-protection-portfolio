@@ -80,7 +80,7 @@ const Index = () => {
           {products.map((p) => (
             <div key={p.name} className="group overflow-hidden border border-border bg-card transition-colors hover:border-primary">
               <div className="relative h-52 w-full overflow-hidden bg-secondary/30">
-                <img src={p.img} alt={p.name} className="h-full w-full object-contain p-4 grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+                <img src={p.img} alt={p.name} className="absolute inset-0 h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
               </div>
               <div className="flex flex-col p-5">
                 <div className="flex items-center gap-2">
