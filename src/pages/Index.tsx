@@ -1,20 +1,48 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { exportKpToPptx, products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
+import { useEffect, useState } from 'react';
 
 const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/329e3a44-9cef-4659-a8ad-377081553f51.png';
-const LOGO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/e2695b19-5eb3-4a64-8d83-f7df38e80358.png';
+const LOGO_SRC = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/de647896-1f60-4e98-8ce2-6fe07d11fbe4.png';
+
+function useTransparentLogo(src: string) {
+  const [logoUrl, setLogoUrl] = useState(src);
+  useEffect(() => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.drawImage(img, 0, 0);
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = data.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const r = d[i], g = d[i + 1], b = d[i + 2];
+        if (r > 220 && g > 220 && b > 220) d[i + 3] = 0;
+      }
+      ctx.putImageData(data, 0, 0);
+      setLogoUrl(canvas.toDataURL());
+    };
+    img.src = src;
+  }, [src]);
+  return logoUrl;
+}
 
 const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'ScanLine', 'Droplets', 'Crosshair'];
 
 const Index = () => {
+  const logo = useTransparentLogo(LOGO_SRC);
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Sticky bar */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src={LOGO} alt="ИТЦ Сибирь" className="h-10 w-10 object-contain" style={{ mixBlendMode: 'lighten' }} />
+            <img src={logo} alt="ИТЦ Сибирь" className="h-12 w-12 object-contain" />
             <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
           <Button onClick={exportKpToPptx} className="gap-2 font-500">
@@ -32,7 +60,7 @@ const Index = () => {
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
           <div className="animate-fade-up mb-6 flex items-center gap-3">
-            <img src={LOGO} alt="ИТЦ Сибирь" className="h-14 w-14 object-contain" style={{ mixBlendMode: 'lighten' }} />
+            <img src={logo} alt="ИТЦ Сибирь" className="h-20 w-20 object-contain" />
             <p className="font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
               Коммерческое предложение · ИТЦ Сибирь
             </p>
