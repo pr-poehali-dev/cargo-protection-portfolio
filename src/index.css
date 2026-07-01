@@ -139,7 +139,7 @@
 @media print {
   @page {
     size: A4;
-    margin: 12mm 14mm;
+    margin: 10mm 12mm;
   }
 
   header,
@@ -153,19 +153,58 @@
     color: #f4f1ea !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    font-size: 11pt !important;
   }
 
+  /* каждая секция — с новой страницы */
   section {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    page-break-before: always !important;
+    break-before: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
+  /* первая секция (hero) — без разрыва перед */
+  section:first-of-type {
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+
+  /* уменьшаем отступы секций при печати */
+  section > div {
+    padding-top: 16mm !important;
+    padding-bottom: 16mm !important;
+  }
+
+  /* сетки — в одну колонку на узких секциях, 2 колонки где нужно */
+  .grid {
+    break-inside: avoid !important;
+  }
+
+  /* карточки не разрезать */
+  .group {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* hero — компактнее */
   .diagonal-clip {
     clip-path: none !important;
+    min-height: auto !important;
   }
 
+  .diagonal-clip > div:last-child {
+    padding-top: 20mm !important;
+    padding-bottom: 20mm !important;
+  }
+
+  /* убираем тени и анимации */
   .amber-glow {
     box-shadow: none !important;
+  }
+
+  .backdrop-blur {
+    backdrop-filter: none !important;
   }
 
   .animate-fade-up {
@@ -174,7 +213,26 @@
     transform: none !important;
   }
 
+  /* steel-grid убираем — при печати лишний шум */
+  .steel-grid {
+    display: none !important;
+  }
+
   img {
     max-width: 100% !important;
+    break-inside: avoid !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* таблица характеристик не разрезать */
+  .overflow-hidden.border {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }

@@ -185,7 +185,7 @@ const Index = () => {
       </Section>
 
       {/* CONTACTS */}
-      <section className="bg-primary text-primary-foreground">
+      <section className="bg-primary text-primary-foreground" style={{ pageBreakBefore: 'always' }}>
         <div className="container py-24">
           <p className="font-display text-sm font-600 uppercase tracking-[0.35em] opacity-70">Контакты · ИТЦ Сибирь</p>
           <h2 className="mt-4 max-w-2xl font-display text-4xl font-700 leading-tight md:text-6xl">
@@ -215,7 +215,7 @@ const Index = () => {
 };
 
 const Section = ({ num, label, title, children, dark }: { num: string; label: string; title: string; children: React.ReactNode; dark?: boolean }) => (
-  <section className={dark ? 'bg-secondary/20' : 'bg-background'}>
+  <section className={dark ? 'bg-secondary/20' : 'bg-background'} style={{ pageBreakBefore: 'always' }}>
     <div className="container py-20 md:py-28">
       <div className="mb-12 flex items-end gap-6">
         <span className="font-display text-6xl font-700 leading-none text-border">{num}</span>
