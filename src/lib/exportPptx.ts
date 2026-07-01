@@ -42,7 +42,7 @@ export const products: Product[] = [
     desc: 'Защищает воздушный фильтр от грязи, воды и механических повреждений.',
     icon: 'Wind',
     img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/8990b69a-6bc3-4db3-ada4-f0150e4e1ac7.jpg',
-    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/8990b69a-6bc3-4db3-ada4-f0150e4e1ac7.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/9307ba13-3c8e-40b1-b6d6-3ac1ed57b78c.jpg',
   },
   {
     name: 'Защита датчиков',
