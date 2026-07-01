@@ -3,6 +3,7 @@ import Icon from '@/components/ui/icon';
 import { exportKpToPptx, products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
 
 const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/329e3a44-9cef-4659-a8ad-377081553f51.png';
+const LOGO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/99353deb-bb85-49dc-b6a5-f115757dcbb3.jpg';
 
 const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'ScanLine', 'Droplets', 'Crosshair'];
 
@@ -12,10 +13,8 @@ const Index = () => {
       {/* Sticky bar */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center bg-primary text-primary-foreground">
-              <Icon name="Shield" size={20} />
-            </div>
+          <div className="flex items-center gap-3">
+            <img src={LOGO} alt="ИТЦ Сибирь" className="h-10 w-10 rounded-sm object-contain" />
             <span className="font-display text-lg font-600 tracking-wide">ИТЦ СИБИРЬ</span>
           </div>
           <Button onClick={exportKpToPptx} className="gap-2 font-500">
@@ -32,9 +31,12 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
-          <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
-            Коммерческое предложение · ИТЦ Сибирь
-          </p>
+          <div className="animate-fade-up mb-6 flex items-center gap-3">
+            <img src={LOGO} alt="ИТЦ Сибирь" className="h-14 w-14 rounded object-contain" />
+            <p className="font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
+              Коммерческое предложение · ИТЦ Сибирь
+            </p>
+          </div>
           <h1 className="animate-fade-up mt-6 font-display text-5xl font-700 leading-[0.95] md:text-8xl" style={{ animationDelay: '0.1s' }}>
             ЗАЩИТА ДЛЯ<br />ГРУЗОВОЙ ТЕХНИКИ
           </h1>
