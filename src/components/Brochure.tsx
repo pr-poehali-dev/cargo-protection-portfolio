@@ -62,16 +62,21 @@ const SectionHead = ({ num, label, title, mb = 10 }: { num: string; label: strin
 // ─── PAGE 1: ОБЛОЖКА ─────────────────────────────────────────────────────────
 const PageCover = () => (
   <div style={{ ...page, padding: 0 }}>
-    {/* фон — картинка поднята выше, минимальное затемнение чтобы надписи были видны */}
-    <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end', paddingTop: '30mm' }}>
+    {/* фон — картинка вверху, края размыты через маску, надписи видны */}
+    <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end', paddingTop: '20mm', overflow: 'hidden' }}>
       <img
         src={HERO}
         alt=""
-        style={{ maxWidth: '100%', maxHeight: '65%', objectFit: 'contain', opacity: 0.85 }}
+        style={{
+          maxWidth: '100%', maxHeight: '72%', objectFit: 'contain', opacity: 1,
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 65% 45%, black 45%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 90% 80% at 65% 45%, black 45%, transparent 100%)',
+          filter: 'brightness(1.15) contrast(1.05)',
+        }}
       />
     </div>
-    {/* затемнение только снизу — под текстом, верх с грузовиком светлый */}
-    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, ${C.dark}33 0%, ${C.dark}22 45%, ${C.dark}f2 72%, ${C.dark} 100%)`, zIndex: 1 }} />
+    {/* лёгкий градиент только снизу для читаемости текста */}
+    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, transparent 0%, transparent 50%, ${C.dark}dd 70%, ${C.dark} 100%)`, zIndex: 1 }} />
     <div style={{ position: 'absolute', left: 0, top: 0, width: 5, height: '100%', background: C.amber, zIndex: 2 }} />
 
     <div style={{ position: 'relative', zIndex: 2, padding: '18mm 16mm 16mm 20mm', height: '100%', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
@@ -111,36 +116,36 @@ const PageProductsAdv = () => (
     <PageBg opacity={0.18} />
     <div style={{ position: 'relative', zIndex: 2, padding: '13mm 12mm', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
 
-      {/* ПРОДУКЦИЯ */}
-      <div style={{ marginBottom: 18 }}>
-        <SectionHead num="01" label="Продукция" title="Что мы производим" mb={10} />
-        <p style={{ fontSize: 10.5, color: C.muted, lineHeight: 1.55, marginBottom: 12 }}>
-          Изготавливаем из <strong style={{ color: C.light }}>стали 3 и 09Г2С</strong> толщиной <strong style={{ color: C.light }}>до 8 мм</strong>. Каждая защита проектируется под конкретный узел техники.
+      {/* ПРОДУКЦИЯ — увеличены картинки и текст */}
+      <div style={{ marginBottom: 14 }}>
+        <SectionHead num="01" label="Продукция" title="Что мы производим" mb={8} />
+        <p style={{ fontSize: 11, color: C.muted, lineHeight: 1.5, marginBottom: 10 }}>
+          Изготавливаем из <strong style={{ color: C.light }}>стали 3 и 09Г2С</strong> толщиной <strong style={{ color: C.light }}>до 8 мм</strong>. Каждая защита проектируется под конкретный узел.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 9 }}>
           {products.map((p) => (
             <div key={p.name} style={{ background: `${C.card}ee`, border: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: 105, background: C.card2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ height: 130, background: C.card2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                 <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
-              <div style={{ padding: '9px 9px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 12, fontWeight: 600, color: C.light, margin: '0 0 4px', lineHeight: 1.2 }}>{p.name}</p>
-                <p style={{ fontSize: 9, color: C.muted, margin: 0, lineHeight: 1.4, flex: 1 }}>{p.desc}</p>
+              <div style={{ padding: '10px 10px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.light, margin: '0 0 5px', lineHeight: 1.2 }}>{p.name}</p>
+                <p style={{ fontSize: 10, color: C.muted, margin: 0, lineHeight: 1.4, flex: 1 }}>{p.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ПРЕИМУЩЕСТВА — растянуты на всё оставшееся место */}
+      {/* ПРЕИМУЩЕСТВА — компактнее, меньше пустого места */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={12} />
+        <SectionHead num="02" label="Преимущества" title="Почему стоит установить защиту" mb={8} />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 3, flex: 1 }}>
           {advantages.map(([t, d], i) => (
-            <div key={t} style={{ background: `${C.card}ee`, padding: '20px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 22, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 12, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 17, fontWeight: 600, color: C.light, margin: '0 0 10px', lineHeight: 1.15, minHeight: '2.3em' }}>{t}</p>
-              <p style={{ fontSize: 12, color: C.muted, lineHeight: 1.6, margin: 0 }}>{d}</p>
+            <div key={t} style={{ background: `${C.card}ee`, padding: '13px 14px', borderLeft: `3px solid ${C.amber}`, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+              <span style={{ fontFamily: "'Oswald', sans-serif", fontSize: 16, fontWeight: 700, color: `${C.amber}55`, lineHeight: 1, marginBottom: 7, display: 'block' }}>{String(i + 1).padStart(2, '0')}</span>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 13, fontWeight: 600, color: C.light, margin: '0 0 6px', lineHeight: 1.15, minHeight: '2em' }}>{t}</p>
+              <p style={{ fontSize: 10.5, color: C.muted, lineHeight: 1.5, margin: 0 }}>{d}</p>
             </div>
           ))}
         </div>
@@ -214,16 +219,16 @@ const PageSpecsPricingPortfolio = () => (
         </div>
       </div>
 
-      {/* ПОРТФОЛИО — все фото одинаковой высоты, object-cover для единообразия */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      {/* ПОРТФОЛИО — фиксированная высота фото, cover с минимальной обрезкой */}
+      <div>
         <SectionHead num="05" label="Портфолио" title="Примеры установленных защит" mb={10} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 9, flex: 1 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 9 }}>
           {products.map((p) => (
-            <div key={p.name} style={{ background: `${C.card}ee`, border: `1px solid ${C.border}`, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-                <img src={p.example} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+            <div key={p.name} style={{ background: `${C.card}ee`, border: `1px solid ${C.border}`, overflow: 'hidden' }}>
+              <div style={{ height: 110, overflow: 'hidden', position: 'relative' }}>
+                <img src={p.example} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }} />
               </div>
-              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10.5, fontWeight: 600, color: C.light, padding: '8px 9px', margin: 0, lineHeight: 1.2, flexShrink: 0, background: C.card }}>{p.name}</p>
+              <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10.5, fontWeight: 600, color: C.light, padding: '7px 9px', margin: 0, lineHeight: 1.2, background: C.card }}>{p.name}</p>
             </div>
           ))}
         </div>
