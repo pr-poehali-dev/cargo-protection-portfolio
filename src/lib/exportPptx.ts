@@ -98,7 +98,7 @@ export function exportKpToPptx() {
 
   const bg = { color: DARK };
 
-  const LOGO_URL = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/99353deb-bb85-49dc-b6a5-f115757dcbb3.jpg';
+  const LOGO_URL = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/e2695b19-5eb3-4a64-8d83-f7df38e80358.png';
 
   // 1. Cover
   let s = pptx.addSlide();

@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 import { exportKpToPptx, products, fullSet, advantages, specs, contacts } from '@/lib/exportPptx';
 
 const HERO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/329e3a44-9cef-4659-a8ad-377081553f51.png';
-const LOGO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/99353deb-bb85-49dc-b6a5-f115757dcbb3.jpg';
+const LOGO = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/e2695b19-5eb3-4a64-8d83-f7df38e80358.png';
 
 const advIcons = ['ShieldCheck', 'PiggyBank', 'Layers', 'ScanLine', 'Droplets', 'Crosshair'];
 
