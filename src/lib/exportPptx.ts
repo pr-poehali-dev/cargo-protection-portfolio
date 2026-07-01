@@ -41,8 +41,8 @@ export const products: Product[] = [
     priceNum: 20000,
     desc: 'Защищает воздушный фильтр от грязи, воды и механических повреждений.',
     icon: 'Wind',
-    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/3cc942f3-9338-4f7f-a482-38f3cbed6936.jpg',
-    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/3cc942f3-9338-4f7f-a482-38f3cbed6936.jpg',
+    img: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/8990b69a-6bc3-4db3-ada4-f0150e4e1ac7.jpg',
+    example: 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/8990b69a-6bc3-4db3-ada4-f0150e4e1ac7.jpg',
   },
   {
     name: 'Защита датчиков',
@@ -97,14 +97,11 @@ export function exportKpToPptx() {
 
   const bg = { color: DARK };
 
-  const LOGO_URL = 'https://cdn.poehali.dev/projects/7d6ba88e-8b0d-489a-9d53-8ca97efd3b5f/bucket/e2695b19-5eb3-4a64-8d83-f7df38e80358.png';
-
   // 1. Cover
   let s = pptx.addSlide();
   s.background = bg;
   s.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: 0.25, h: 7.5, fill: { color: AMBER } });
-  s.addImage({ path: LOGO_URL, x: 0.7, y: 0.35, w: 1.0, h: 1.0, sizing: { type: 'contain', w: 1.0, h: 1.0 } });
-  s.addText('ИТЦ СИБИРЬ', { x: 1.85, y: 0.55, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
+  s.addText('ИТЦ СИБИРЬ', { x: 0.7, y: 0.5, w: 8, h: 0.4, color: AMBER, fontSize: 14, bold: true, charSpacing: 4, fontFace: 'Arial' });
   s.addText('ЗАЩИТА ДЛЯ\nГРУЗОВОЙ ТЕХНИКИ', { x: 0.7, y: 2.2, w: 11, h: 2, color: LIGHT, fontSize: 54, bold: true, fontFace: 'Arial', lineSpacingMultiple: 0.95 });
   s.addText('Коммерческое предложение · Shacman X3000 и спецтехника', { x: 0.7, y: 4.3, w: 11, h: 0.5, color: GREY, fontSize: 18, fontFace: 'Arial' });
   s.addText(`${contacts.phone} · ${contacts.site}`, { x: 0.7, y: 6.7, w: 11, h: 0.4, color: GREY, fontSize: 12, fontFace: 'Arial' });
@@ -176,15 +173,14 @@ export function exportKpToPptx() {
   s.addText('Примеры установленных защит', { x: 0.7, y: 0.95, w: 12, h: 0.9, color: LIGHT, fontSize: 34, bold: true, fontFace: 'Arial' });
   products.forEach((p, i) => {
     const x = 0.7 + i * 3;
-    s.addShape(pptx.ShapeType.rect, { x, y: 2.3, w: 2.75, h: 2.6, fill: { color: CARD }, line: { color: '2A2F3A', width: 1 } });
-    s.addImage({ path: p.example, x: x + 0.1, y: 2.4, w: 2.55, h: 2.1, sizing: { type: 'cover', w: 2.55, h: 2.1 } });
-    s.addText(p.name, { x, y: 5.0, w: 2.75, h: 0.5, color: LIGHT, fontSize: 13, bold: true, align: 'center', fontFace: 'Arial' });
+    s.addShape(pptx.ShapeType.rect, { x, y: 2.3, w: 2.75, h: 2.6, fill: { color: CARD }, line: { color: AMBER, width: 1 } });
+    s.addText(p.name, { x, y: 3.2, w: 2.75, h: 0.8, color: LIGHT, fontSize: 14, bold: true, align: 'center', valign: 'middle', fontFace: 'Arial' });
+    s.addText(p.price, { x, y: 4.1, w: 2.75, h: 0.5, color: AMBER, fontSize: 16, bold: true, align: 'center', fontFace: 'Arial' });
   });
 
   // 7. Contacts
   s = pptx.addSlide();
   s.background = { color: AMBER };
-  s.addImage({ path: LOGO_URL, x: 10.8, y: 0.3, w: 2.2, h: 2.2, sizing: { type: 'contain', w: 2.2, h: 2.2 } });
   s.addText('СВЯЖИТЕСЬ С НАМИ', { x: 0.7, y: 1.3, w: 11, h: 0.5, color: DARK, fontSize: 16, bold: true, charSpacing: 4, fontFace: 'Arial' });
   s.addText('ИТЦ Сибирь — защитим вашу технику', { x: 0.7, y: 1.9, w: 12, h: 1, color: DARK, fontSize: 40, bold: true, fontFace: 'Arial' });
   s.addText([

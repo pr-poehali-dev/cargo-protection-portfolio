@@ -53,26 +53,19 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
         <div className="steel-grid absolute inset-0 opacity-30" />
         <div className="container relative py-28 md:py-40">
-          <div className="animate-fade-up mb-6 flex items-center gap-3">
-            <Logo size={80} />
-            <p className="font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
-              Коммерческое предложение · ИТЦ Сибирь
-            </p>
-          </div>
+          <p className="animate-fade-up font-display text-sm font-600 uppercase tracking-[0.35em] text-primary">
+            Коммерческое предложение · ИТЦ Сибирь
+          </p>
           <h1 className="animate-fade-up mt-6 font-display text-5xl font-700 leading-[0.95] md:text-8xl" style={{ animationDelay: '0.1s' }}>
             ЗАЩИТА ДЛЯ<br />ГРУЗОВОЙ ТЕХНИКИ
           </h1>
           <p className="animate-fade-up mt-8 max-w-xl text-lg text-muted-foreground" style={{ animationDelay: '0.2s' }}>
             Производим защиту картера, топливного бака, воздушного фильтра и датчиков для грузовиков Shacman X3000 и спецтехники. Сталь 3 и 09Г2С толщиной до 8 мм.
           </p>
-          <div className="animate-fade-up mt-10 flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-fade-up mt-10" style={{ animationDelay: '0.3s' }}>
             <Button onClick={exportKpToPptx} size="lg" className="gap-2 font-500 amber-glow">
               <Icon name="FileDown" size={18} />
               Скачать презентацию
-            </Button>
-            <Button size="lg" variant="outline" className="gap-2 border-border font-500">
-              <Icon name="Phone" size={18} />
-              Получить расчёт
             </Button>
           </div>
         </div>
@@ -85,14 +78,14 @@ const Index = () => {
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {products.map((p) => (
-            <div key={p.name} className="group flex gap-5 overflow-hidden border border-border bg-card transition-colors hover:border-primary">
-              <div className="relative h-auto w-32 shrink-0 overflow-hidden">
-                <img src={p.img} alt={p.name} className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+            <div key={p.name} className="group overflow-hidden border border-border bg-card transition-colors hover:border-primary">
+              <div className="relative h-52 w-full overflow-hidden bg-secondary/30">
+                <img src={p.img} alt={p.name} className="h-full w-full object-contain p-4 grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-105" />
               </div>
-              <div className="flex flex-col justify-center py-5 pr-5">
-                <div className="flex items-center gap-2 text-primary">
-                  <Icon name={p.icon} size={20} />
-                  <h3 className="font-display text-xl font-600 text-foreground">{p.name}</h3>
+              <div className="flex flex-col p-5">
+                <div className="flex items-center gap-2">
+                  <Icon name={p.icon} size={20} className="text-primary" />
+                  <h3 className="font-display text-xl font-600">{p.name}</h3>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                 <p className="mt-3 font-display text-lg font-700 text-primary">{p.price}</p>
@@ -161,7 +154,6 @@ const Index = () => {
                 </li>
               ))}
             </ul>
-            <Button className="mt-8 w-full font-500">Заказать комплект</Button>
           </div>
         </div>
         <div className="mt-6 flex items-start gap-4 border border-border bg-card p-6">
